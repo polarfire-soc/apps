@@ -1,0 +1,27 @@
+From 8950fc224528c38640179479a9aaa6d75910a5ac Mon Sep 17 00:00:00 2001
+From: shravan kumar <shravan.chippa@microchip.com>
+Date: Wed, 9 Sep 2020 19:03:08 +0530
+Subject: [PATCH 2/2] Added AC489 user apps
+
+Signed-off-by: shravan kumar <shravan.chippa@microchip.com>
+---
+ recipes-core/images/mpfs-dev-cli.bb | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/recipes-core/images/mpfs-dev-cli.bb b/recipes-core/images/mpfs-dev-cli.bb
+index f6bc6a3..06d2eab 100644
+--- a/recipes-core/images/mpfs-dev-cli.bb
++++ b/recipes-core/images/mpfs-dev-cli.bb
+@@ -49,6 +49,9 @@ IMAGE_INSTALL = "\
+     iw \
+     libudev \
+     nano \
++    apps \
++    pcie-app \
++    pcie-ep-driver \
+     nfs-utils-client \
+     cifs-utils \
+     openssh-sftp \
+-- 
+2.17.1
+

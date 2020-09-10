@@ -1,0 +1,112 @@
+From 8553dbd1788fdaf235586d940c5933f882abf1f7 Mon Sep 17 00:00:00 2001
+From: shravan kumar <shravan.chippa@microchip.com>
+Date: Wed, 9 Sep 2020 18:47:47 +0530
+Subject: [PATCH 1/2] Added DTS support for PCIe UIO GPIO Fabric DMA
+
+Signed-off-by: shravan kumar <shravan.chippa@microchip.com>
+---
+ .../icicle-kit-es-a000-microchip.dts          | 81 ++++++++++++-------
+ 1 file changed, 52 insertions(+), 29 deletions(-)
+
+diff --git a/recipes-kernel/linux/files/icicle-kit-es/icicle-kit-es-a000-microchip.dts b/recipes-kernel/linux/files/icicle-kit-es/icicle-kit-es-a000-microchip.dts
+index 72f9f09..5d1c687 100644
+--- a/recipes-kernel/linux/files/icicle-kit-es/icicle-kit-es-a000-microchip.dts
++++ b/recipes-kernel/linux/files/icicle-kit-es/icicle-kit-es-a000-microchip.dts
+@@ -301,6 +301,33 @@
+                 ti,fifo-depth = <0x01>;
+             };
+         }; */ 
++	gpio2: gpio@20122000 {
++            compatible = "microsemi,ms-pf-mss-gpio";
++            interrupt-parent = <&L1>;
++            interrupts = <53 53 53 53 53 53 53 53
++			  53 53 53 53 53 53 53 53
++                          53 53 53 53 53 53 53 53
++                          53 53 53 53 53 53 53 >;
++            gpio-controller;
++            reg = <0x0 0x20122000 0x0 0x1000>;
++            reg-names = "control";
++            status = "okay";
++                };
++	uio_lsram: uio_lpddr4@0xC0000000 {
++	    compatible = "generic-uio";
++            reg = < 0x0 0x61000000 0x0 0x00010000
++	            0x0 0xC0000000 0x0 0x00010000 >;
++	    status = "okay";
++	};
++	dma: dma@0x60020000 {
++	    #address-cells = <1>;
++	    #size-cells = <0>;
++	    compatible = "microsemi,ms-pf-mss-dma-uio";
++	    reg = <0x00 0x60020000 0x0 0x1000>;
++	    interrupt-parent = <&L1>;
++	    interrupts = <119>;
++	    status = "okay";
++	};
+         emac1: ethernet@20112000 {
+             compatible = "cdns,macb";
+             reg = <0x0 0x20112000 0x0 0x2000>;
+@@ -317,35 +344,31 @@
+                 ti,fifo-depth = <0x01>;
+             };
+         };
+-        pcie: pci@E0000000 {
+-		#address-cells = <3>;
+-		#interrupt-cells = <1>;
+-		#size-cells = <2>;
+-		compatible = "microsemi,ms-pf-axi-pcie-host";
+-		device_type = "pci";
+-		clocks = <&clkcfg 28>, <&clkcfg 30>;
+-		clock-names = "pcie","regclk";
+-       		bus-range = <0x00 0x7f>;
+-		interrupt-map = <0 0 0 1 &pcie_intc 1>,
+-                                <0 0 0 2 &pcie_intc 2>,
+-                                <0 0 0 3 &pcie_intc 3>,
+-                                <0 0 0 4 &pcie_intc 4>;
+-		interrupt-map-mask = <0 0 0 7>;
+-		interrupt-parent = <&L1>;
+-		interrupts = <32>;
+-		ranges = <0x43000000 0x0 0xE8000000 0x0 0xE8000000 0x0 0x8000000>;
+-                reg = <0x0 0xE0000000 0x0 0x8000000 0x0 0x43000000 0x0 0x10000>;
+-                reg-names = "control", "apb";
+-		pcie_intc: interrupt-controller {
+-			#address-cells = <0>;
+-			#interrupt-cells = <1>;
+-			interrupt-controller;
+-		};
+-	};
+ 
+-	L60: uio_axi_lsram@2030000000 {
+-		compatible = "generic-uio";
+-		reg = <0x20 0x30000000 0 0x80000000 >;
+-                status = "okay";
++        pcie0: pcie@70000000 {
++                #address-cells = <3>;
++                #interrupt-cells = <1>;
++                #size-cells = <2>;
++                #compatible = "microsemi,ms-pf-axi-pcie-host";
++                compatible = "microchip,pcie-host-1.0";
++                device_type = "pci";
++                clocks = <&clkcfg 28>, <&clkcfg 30>;
++                clock-names = "pcie","regclk";
++                bus-range = <0x00 0x7f>;
++                interrupt-map =     <0 0 0 1 &pcie0 0>,
++                                    <0 0 0 2 &pcie0 1>,
++                                    <0 0 0 3 &pcie0 2>,
++                                    <0 0 0 4 &pcie0 3>;
++
++                interrupt-map-mask = <0 0 0 7>;
++                interrupt-parent = <&L1>;
++                interrupts = <32>;
++
++               ranges = <0x03000000 0x0 0x78000000 0x0 0x78000000 0x0 0x4000000>;
++               reg = <0x0 0x70000000 0x0 0x8000000  0x0 0x43000000 0x0 0x10000>;
++               reg-names = "control", "apb";
++                      interrupt-controller;
++                       msi-parent = <&pcie0>;
++                       msi-controller;
+         };
+ };
+-- 
+2.17.1
+
