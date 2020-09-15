@@ -21,7 +21,7 @@ The pre-built Linux image includes the following customization to access LSRAM f
 
 ## Pre-Requisite:
 
-Before running this application, please follow AC489 Application Note and ensure to complete following:
+Before running this application, please follow AC489 Application Note and ensure the following steps are completed:
 
 1. Setting up the ICICLE kit
 2. Programming the provided job file (name)
