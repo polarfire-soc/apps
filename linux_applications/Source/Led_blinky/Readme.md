@@ -19,8 +19,8 @@ MSS GPIO_2 is connected to LED's in AC489 Libero design. These LED's are blinked
 Before running this application, please follow AC489 Application Note and ensure to complete following:
 
 1. Setting up the ICICLE kit
-2. Programming the provided job file (name)
-3. Programming the provided Linux image (.wic image name)
+2. Programming the provided job file [Programming_Job_File](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/linux_applications/Hardware/Programming_Job_File?at=refs%2Fheads%2Fdevelop_ac489)
+3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](ftp://ftp.actel.com/outgoing/AC489/mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic.gz).
 4. Booting Linux
 
 ## Running the Application:
