@@ -1,9 +1,9 @@
 # Applying patches:
 
 Download  below patches
-1. 0001-Added-DTS-support-for-PCIe-UIO-GPIO-Fabric-DMA.patch
-2. 0002-Added-AC489-user-apps.patch
-3. recipes-microchip-apps.tar 
+1. 0001-Added-DTS-support-for-PCIe-UIO-GPIO-Fabric-DMA.patch -> This patch will add support for PCIe, DMA, UIO and GPIO in device tree nodes.
+2. 0002-Added-AC489-user-apps.patch -> This patch will add pakages (apps, pcie_ep_app, pcie_ep_driver) to AC489 linux wic image
+3. recipes-microchip-apps.tar -> This tar file consists of patchs for HSS, u-boot, linux and applications sources files.
 
 ## Create a directory  “patches“ in “yocto-dev” directory of downloaded Yocto source
 
