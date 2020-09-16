@@ -1,6 +1,6 @@
 ## linux_applications:
 
-This folder contains linux related file such as Application Note AC489 linux prebuilt image, programming job file, Libero project etc..
+This folder contains linux related files for Application Note AC489 linux prebuilt image, programming job file, Libero project etc..
 
 ## baremetal_applications: 
 
