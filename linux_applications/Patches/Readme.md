@@ -19,6 +19,11 @@ Make sure that you should be in “meta-polarfire-soc-yocto-bsp” directory of 
 $ cd meta-polarfire-soc-yocto-bsp/
 ```
 
+## Checkout to the tested commit ID to aviod patch conflicts
+
+```
+$ git checkout 5097cab102860ab43a1cc44d64ca68a49852ad56 
+```
 ## Command to apply patch:
 
 #### Apply dts patch:
