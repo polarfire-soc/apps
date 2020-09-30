@@ -39,6 +39,11 @@ Now “recipes-microchip-apps.tar” file is compressed file, un-compress the fi
 ```
 $ tar -xvf ../patches/recipes-microchip-apps.tar
 ```
+## Run the following command to remove the nss package which is not required for this application note
+
+```
+$ rm -rf recipes-support/
+```
 Now you can proceed to building the linux image
 
 ```
