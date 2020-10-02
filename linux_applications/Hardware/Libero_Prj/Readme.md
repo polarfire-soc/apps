@@ -6,4 +6,4 @@ This design also features LSRAM blocks, DMA Controller, and PCIe Controller on t
 
 
 ## Download Libero_Prj
-[Libero_Prj](ftp://ftp.actel.com/outgoing/AC489/Libero_Project.zip)
+[Libero_Prj](ftp://ftpsoc.microsemi.com/outgoing/AC489/Libero_Project.zip)
