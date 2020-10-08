@@ -41,7 +41,7 @@ Connect the EP (PolarFire Eval Kit) to the RP (ICICLE Kit) PCIe Slot.
 1. Switch ON the power supply for ICICLE Kit and PolarFire Eval Kit.
 2. Program the EP Kit with the provided job file [Programming_file.zip](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/linux_applications/Source/PCIe_Root_Port_Control_Plane/SourceFiles/pcie_ep_programming_job/Programming_file.zip?at=refs%2Fheads%2Fdevelop_ac489) using Flash pro express software by selecting the allotted port.
 3. Program the ICICLE KIT with the provided job file [Programming_Job_File](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/linux_applications/Hardware/Programming_Job_File?at=refs%2Fheads%2Fdevelop_ac489) using external flash pro 6 hardware by selecting the allotted port with Flash pro express software.
-4. Program the provided Linux pre-built image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](ftp://ftp.actel.com/outgoing/AC489/mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic.gz).
+4. Program the provided Linux pre-built image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
 5. Boot Linux
 6. Ensure both RP and EP are detected by executing the lspci command as shown below.
 
