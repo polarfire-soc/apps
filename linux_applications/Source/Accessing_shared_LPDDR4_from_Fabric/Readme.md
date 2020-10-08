@@ -51,7 +51,7 @@ For running this application please ensure the following as described in AC489 u
 
 1. Setup the ICICLE kit
 2. Programming the provided job file [Programming_Job_File](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/linux_applications/Hardware/Programming_Job_File?at=refs%2Fheads%2Fdevelop_ac489)
-3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](ftp://ftp.actel.com/outgoing/AC489/mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic.gz).
+3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
 4. Boot Linux
 
 ## Running the User Application:
@@ -65,7 +65,7 @@ root@icicle-kit-es:~# cd /microchip-apps/
 Type the ./uio_dma_interrupt command and Press Enter to execute the application.
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrupt
+root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
 
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
@@ -78,7 +78,7 @@ Enter 1 to perform memory test on LSRAM.
 After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrupt
+root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to transfer data from LSRAM to uncached LPDD4 via DMA
@@ -105,7 +105,7 @@ Comparing data
 Enter 2 to perform data transfer from LSRAM to uncached LPDDR4 memory region using Fabric DMA controller:
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrupt
+root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to transfer data from LSRAM to uncached LPDD4 via DMA
