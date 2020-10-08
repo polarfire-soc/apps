@@ -50,7 +50,7 @@ The C application waits for the interrupt assertion and validates the data once 
 For running this application please ensure the following as described in AC489 user guide:
 
 1. Setup the ICICLE kit
-2. Programming the provided job file [Programming_Job_File](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/linux_applications/Hardware/Programming_Job_File?at=refs%2Fheads%2Fdevelop_ac489)
+2. Programming the provided job file [Programming_Job_File](https://github.com/polarfire-soc/apps/blob/master/linux_applications/Hardware/Programming_Job_File/Programming_file.zip)
 3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
 4. Boot Linux
 
