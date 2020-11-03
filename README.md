@@ -5,3 +5,5 @@ This folder contains linux related files for Application Note AC489 linux prebui
 ## baremetal_applications: 
 
 This folder contains System services Softconsole project.
+Test example
+
