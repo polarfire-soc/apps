@@ -1,40 +1,69 @@
-# System services Softconsole Proj
+# System Services
 
 ## Objective:
 
-This SoftConsole project demonstrates the execution of PolarFire SoC system services on the MPFS-ICICLE-Kit using the MSS system service driver. Refer to [AC492: PolarFire SoC FPGA System Services Application Note](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407) for detailed description of this application. The associated Libero project and programming file are available at the following locations:
+This SoftConsole project demonstrates the execution of PolarFire SoC system services on the MPFS-ICICLE-Kit using the MSS system service driver. Refer to [AC492: Running BareMetal User Applications on PolarFire SoC FPGA Application Note](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407) for detailed description of this application. 
 
-## Programming file and libero project directory:
+## Design Description
 
-|Description | Link |
-| --- | --- |
-| Libero Project | [Link](https://github.com/polarfire-soc/apps/tree/master/linux_applications/Hardware/Libero_Prj) |
-| Programming File | [Link](https://github.com/polarfire-soc/apps/tree/master/linux_applications/Hardware/Programming_Job_File) |
+As shown in the following figure, the MSS is interfaced with the system controller via the SCB (system controller bus) bridge. MSS initiates system service requests via the SCB bridge which includes System Service Interface (SSI).
 
-## Setting up the hardware
+The following points summarize the system service flow:
+• The host PC sends the system service request to MSS MMUART via the UART interface.
+• MSS initializes the system controller and sends the requested system service command to the system controller.
+• The system controller executes the system service command and sends the relevant response to MSS over the mailbox interface.
+• MSS receives the service response and forwards the receive data to the UART interface.
 
-### Setting up the hardware involves the following steps:
+By default, the SCB bridge and the SCB Master block are available in the MSS, there is no need for a separate configuration.
 
-1. Set the Jumpers on MPFS-ICICLE-KIT as per the following table
+## Libero Programming Job File
 
-| Jumper | Setting |
-| --- 	| --- 	 |
-| J15	| Open   |
-| J17	| Open   |
-| J24	| Open   |
-| J28	| Closed |
-| J31	| Open   |
-| J34	| 1 and 2 |
-| J35	| 1 and 2 |
-| J43	| 1 and 2 |
-| J45	| 1 and 2 |
-| J46	| Closed  |
-| J9	| Open    |
-| J21	| Open    |
+[Job File](https://github.com/polarfire-soc/apps/tree/master/linux_applications/Hardware/Programming_Job_File)
 
-- Connect the Kit to Host PC via J11 (USB-UART) using the USB A to Micro B cable.
-- Connect the FlashPro 6 (or FP 4 or 5) programmer to the Kit via Program Header (J23) using USB A to Mini B cable.
-- Power-up the board.
+## Requirements
+
+-ICICLE Kit (MPFS250T-FCVG484EES)
+
+-SoftConsole v6.5
+
+-Serial Terminal program (PuTTY or TeraTerm)
+
+-Host PC 
+- Windows 10 OS 
+
+## Pre-Requisite
+
+Before running the user application, ensure to complete the following steps:
+
+1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
+2. Setting up the Serial Terminal.
+3. Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0. 
+   - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None. 
+   - Use FlashPro Express to program the ICICLE Kit with the job file. 
+4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/System_Services/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
+
+## Running the System Service Application:
+
+The system services SoftConsole project must be launched in debug mode for running system services. For more information about steps to running the PolarFire SoC system services, see [AC492: Running BareMetal User Applications on PolarFire SoC FPGA Application Note.](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407)
+
+
+
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+README.md[+] [dos] (12:04 28/12/2020)                                                                                                                                                                     23,1 All
+-- INSERT --
+
 
 ## Setting up the Serial Terminal:
 1. Open Tera Term on Host PC.
