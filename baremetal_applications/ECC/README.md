@@ -30,11 +30,11 @@ In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from
 
 Before running the user application, ensure to complete the following steps:
 
-1. Setting up the jumpers[jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
+1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
 2. Setting up the Serial Terminal
 Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
 Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the job file 
+3. Use FlashPro Express to program the ICICLE Kit with the job file.
 4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
 
 ## Running the Application
@@ -46,18 +46,27 @@ After the device is programmed, power cycle the board. To run the application, f
 3. Select Run > External Tools > PolarFire SoC program non secure boot mode 1 for booting the application from eNVM directly.
 
 The following options are displayed on the Serial Terminal.
-
+``` 
    The L2 cache controller supports ECC for Single-Error Correction 
+
    Whenever a correctable error is detected
+
    the cache controller immediately repairs the corrupted bit and writes it back to
    L2-LIM.
 
    This application shows L2-LIM ECC functionality for single bit error
+
    Type 0 To show this menu
+
    Type 1 To initialize L2 LIM Initialization
+
    Type 2 To print ECC fix count register value
+
    Type 3 To inject single bit error
+
    Type 4 To access L2 LIM memory
+
+```
 
 4. On the serial terminal, type 1 to initialize the L2 LIM memory. L2 LIM is initialized with an incremental pattern.
 5. Type 2 to get the initial ECC Fix_count register value.
