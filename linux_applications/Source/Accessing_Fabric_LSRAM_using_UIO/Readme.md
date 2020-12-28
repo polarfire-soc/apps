@@ -1,10 +1,10 @@
 # Accessing Fabric LSRAM using UIO
 
-## Objective:
+## Objective
 
-Using this application, Read's and Write's to memory mapped Fabric LSRAM is performed.
+Using this application, Read's and Write's to memory mapped Fabric LSRAM are performed.
 
-## Description:
+## Description
 
 In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
@@ -14,12 +14,12 @@ The pre-built Linux image includes the following customization to access LSRAM f
 - UIO framework is enabled in the Linux configuration file (defconfig).
 - User application performs LSRAM memory test using uio-dev node (/dev/uio).
 
-## Hardware Requirements:
+## Hardware Requirements
 
-- ICICLE Kit (MPFS250T-FCVG484EES)
+- ICICLE Kit (MPFS250T-FCVG484E)
 - Host PC - Windows 10 OS
 
-## Pre-Requisite:
+## Pre-Requisite
 
 Ensure to follow the documentation provided on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
 1. Programming the ICICLE KIT reference design
@@ -27,8 +27,7 @@ Ensure to follow the documentation provided on [GitHub](https://github.com/polar
 3. Initiating Linux boot
 
 
-## Running the User Application:
-
+## Running the User Application
 
 The LSRAM user application (LSRAM_read_write) is available under /opt/microchip/apps directory in rootfs.
 
@@ -36,8 +35,8 @@ The LSRAM user application (LSRAM_read_write) is available under /opt/microchip/
 ```
 root@icicle-kit-es:~# cd /opt/microchip/apps/
 ```
-
-Type the ./LSRAM_read_write command and Press Enter to execute the application.
+To run the application, follow these steps:
+1. Type the ./LSRAM_read_write command and Press Enter to execute the application.
 
 
 ```
@@ -47,8 +46,8 @@ root@icicle-kit-es:/opt/microchip/apps# ./LSRAM_read_write
          Enter 2 to Exit  
 ```
 
-Enter 1 to perform memory test on LSRAM.
-After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
+2. Enter 1 to perform memory test on LSRAM.
+   After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
 
 
 ```
@@ -67,5 +66,5 @@ Comparing data
          Enter 2 to Exit
 ```
 
-Enter 2 to exit the application
+3. Enter 2 to exit the application
 
