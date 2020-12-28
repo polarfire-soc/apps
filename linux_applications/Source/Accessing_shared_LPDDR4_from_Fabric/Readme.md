@@ -9,7 +9,7 @@ Using this application, a shared uncached LPDDR4 memory space is accessed by  li
 
 In the Libero design, fabric LSRAM and fabric DMA Controller are interfaced to MSS via FIC. The shared LPDDR4 memory region (0XC0000000-0xC000FFFF) is accessed via  uncached path for fabric as shown in following figure.
 
-For more information on Libero hardware design, please refer AC489 Application Note.
+More information on Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 ![](./images/Libero_dis.png)
 
@@ -47,25 +47,23 @@ The C application waits for the interrupt assertion and validates the data once 
 
 ## Pre requisite:
 
-For running this application please ensure the following as described in AC489 user guide:
-
-1. Setup the ICICLE kit
-2. Programming the provided job file [Programming_Job_File](https://github.com/polarfire-soc/apps/blob/master/linux_applications/Hardware/Programming_Job_File/Programming_file.zip)
-3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
-4. Boot Linux
+Ensure to follow the documentation provided on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+1. Programming the ICICLE KIT reference design
+2. Writing the Pre-built Linux Image to eMMC or SD
+3. Initiating Linux boot
 
 ## Running the User Application:
 
-The user application (uio_dma_interrupt) is available under /microchip-apps directory in rootfs.
+The user application (uio_dma_interrupt) is available under /opt/microchip/apps directory in rootfs.
 
 ```
-root@icicle-kit-es:~# cd /microchip-apps/  
+root@icicle-kit-es:~# cd /opt/microchip/apps/  
 ```
 
 Type the ./uio_dma_interrupt command and Press Enter to execute the application.
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
+root@icicle-kit-es:/opt/microchip/apps# ./uio_dma_interrupt
 
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
@@ -78,7 +76,7 @@ Enter 1 to perform memory test on LSRAM.
 After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
+root@icicle-kit-es:/opt/microchip/apps# ./uio_dma_interrup
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to transfer data from LSRAM to uncached LPDD4 via DMA
@@ -105,7 +103,7 @@ Comparing data
 Enter 2 to perform data transfer from LSRAM to uncached LPDDR4 memory region using Fabric DMA controller:
 
 ```
-root@icicle-kit-es:/microchip-apps# ./uio_dma_interrup
+root@icicle-kit-es:/opt/microchip/apps# ./uio_dma_interrup
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to transfer data from LSRAM to uncached LPDD4 via DMA
