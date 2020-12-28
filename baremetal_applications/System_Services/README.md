@@ -9,10 +9,11 @@ This SoftConsole project demonstrates the execution of PolarFire SoC system serv
 As shown in the following figure, the MSS is interfaced with the system controller via the SCB (system controller bus) bridge. MSS initiates system service requests via the SCB bridge which includes System Service Interface (SSI).
 
 The following points summarize the system service flow:
-• The host PC sends the system service request to MSS MMUART via the UART interface.
-• MSS initializes the system controller and sends the requested system service command to the system controller.
-• The system controller executes the system service command and sends the relevant response to MSS over the mailbox interface.
-• MSS receives the service response and forwards the receive data to the UART interface.
+
+- The host PC sends the system service request to MSS MMUART via the UART interface.
+- MSS initializes the system controller and sends the requested system service command to the system controller.
+- The system controller executes the system service command and sends the relevant response to MSS over the mailbox interface.
+- MSS receives the service response and forwards the receive data to the UART interface.
 
 By default, the SCB bridge and the SCB Master block are available in the MSS, there is no need for a separate configuration.
 
@@ -22,14 +23,11 @@ By default, the SCB bridge and the SCB Master block are available in the MSS, th
 
 ## Requirements
 
--ICICLE Kit (MPFS250T-FCVG484EES)
-
--SoftConsole v6.5
-
--Serial Terminal program (PuTTY or TeraTerm)
-
--Host PC 
-- Windows 10 OS 
+- ICICLE Kit (MPFS250T-FCVG484EES)
+- SoftConsole v6.5
+- Serial Terminal program (PuTTY or TeraTerm)
+- Host PC 
+  - Windows 10 OS 
 
 ## Pre-Requisite
 
@@ -42,43 +40,9 @@ Before running the user application, ensure to complete the following steps:
    - Use FlashPro Express to program the ICICLE Kit with the job file. 
 4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/System_Services/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
 
-## Running the System Service Application:
+## Running the System Service Application
 
 The system services SoftConsole project must be launched in debug mode for running system services. For more information about steps to running the PolarFire SoC system services, see [AC492: Running BareMetal User Applications on PolarFire SoC FPGA Application Note.](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407)
-
-
-
-
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-README.md[+] [dos] (12:04 28/12/2020)                                                                                                                                                                     23,1 All
--- INSERT --
-
-
-## Setting up the Serial Terminal:
-1. Open Tera Term on Host PC.
-2. Select the COM port which is connected to the following interface:
-Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
-3. Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-
-## Programming the PolarFire SoC Device:
-
-Please follow the steps described in [AC492: PolarFire SoC FPGA System Services Application Note](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407)
-
-## Running the System Service Application:
-
-The system services SoftConsole project must be launched in debug mode for running system services. For more information about steps to running the PolarFire SoC system services, see [AC492: PolarFire SoC FPGA System Services Application Note.](http://www.microsemi.com/index.php?option=com_docman&task=doc_download&gid=1245407) 
-
 
 
 
