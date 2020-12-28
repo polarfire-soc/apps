@@ -6,7 +6,7 @@ Using this application, Read's and Write's to memory mapped Fabric LSRAM is perf
 
 ## Description:
 
-In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md).
+In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 The pre-built Linux image includes the following customization to access LSRAM from user space.
 
