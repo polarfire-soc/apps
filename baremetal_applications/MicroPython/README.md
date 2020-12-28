@@ -6,7 +6,7 @@ The Scope of the project is to build MicroPython for PolarFire SoC RISC-V archit
 
 ## Design Description
 
-The block diagram of the design is as follows
+The following figure shows the block diagram of the design.
 
 ![](./images/running_micropython.jpg)
 
@@ -24,18 +24,20 @@ The bootloader application runs using E51 monitor core and gets the MicroPython 
 
 -Serial Terminal program (PuTTY or TeraTerm)
 
--Host PC - Windows 10 OS
+-Host PC 
+
+- Windows 10 OS
 
 ## Pre-Requisite
 
 Before running the user application, ensure to complete the following steps:
 1. Setting up the jumpers[jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
 2. Setting up the Serial Terminal 
-    - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
+    - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the job file 
-4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables)
-5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables)
+3. Use FlashPro Express to program the ICICLE Kit with the job file. 
+4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
+5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables).
 
    The micropython.bin file can be cross complied using Linux host machine as explained in Cross-Compiling MicroPython for Polarfire SoC ICICLE Kit (RISCV architecture).
    
