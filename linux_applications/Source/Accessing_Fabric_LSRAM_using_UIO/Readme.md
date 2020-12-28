@@ -6,7 +6,7 @@ Using this application, Read's and Write's to memory mapped Fabric LSRAM are per
 
 ## Description
 
-In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
+In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 The pre-built Linux image includes the following customization to access LSRAM from user space.
 
@@ -21,7 +21,7 @@ The pre-built Linux image includes the following customization to access LSRAM f
 
 ## Pre-Requisite
 
-Ensure to follow the documentation provided on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+Ensure to follow the documentation provided on [Updating PolarFire SoC Icicle-Kit FPGA Design and Linux Image](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
 1. Programming the ICICLE KIT reference design
 2. Writing the Pre-built Linux Image to eMMC or SD
 3. Initiating Linux boot
