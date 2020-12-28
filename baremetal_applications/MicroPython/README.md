@@ -34,7 +34,8 @@ Before running the user application, ensure to complete the following steps:
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
 3. Use FlashPro Express to program the ICICLE Kit with the job file 
 4. Download SoftConsole project from the following link: https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables
-5. Download the micropython.bin from the following link: 
+5. Download the micropython.bin from the following link: https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables
+
    The micropython.bin file can be cross complied using Linux host machine as explained in Cross-Compiling MicroPython for Polarfire SoC ICICLE Kit (RISCV architecture).
    
 ## Running the Application 
