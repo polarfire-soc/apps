@@ -1,12 +1,12 @@
 # Accessing Fabric LSRAM using UIO
 
-## Objective:
+## Objective
 
-Using this application, Read's and Write's to memory mapped Fabric LSRAM is performed.
+Using this application, Read's and Write's to memory mapped Fabric LSRAM are performed.
 
-## Description:
+## Description
 
-In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000.  For more information on Libero design, refer AC489 Application Note.
+In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 The pre-built Linux image includes the following customization to access LSRAM from user space.
 
@@ -14,47 +14,44 @@ The pre-built Linux image includes the following customization to access LSRAM f
 - UIO framework is enabled in the Linux configuration file (defconfig).
 - User application performs LSRAM memory test using uio-dev node (/dev/uio).
 
-## Hardware Requirements:
+## Hardware Requirements
 
-- ICICLE Kit (MPFS250T-FCVG484EES)
+- ICICLE Kit (MPFS250T-FCVG484E)
 - Host PC - Windows 10 OS
 
-## Pre-Requisite:
+## Pre-Requisite
 
-Before running this application, please follow AC489 Application Note and ensure the following steps are completed:
+Ensure to follow the documentation provided on [Updating PolarFire SoC Icicle-Kit FPGA Design and Linux Image](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+1. Programming the ICICLE KIT reference design
+2. Writing the Pre-built Linux Image to eMMC or SD
+3. Initiating Linux boot
 
-1. Setting up the ICICLE kit
-2. Programming the provided job file [Programming_Job_File](https://github.com/polarfire-soc/apps/blob/master/linux_applications/Hardware/Programming_Job_File/Programming_file.zip)
-3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
-4. Booting Linux
 
-## Running the User Application:
+## Running the User Application
 
-This application is part of Linux pre-built image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
-
-The LSRAM user application (LSRAM_read_write) is available under /microchip-apps directory in rootfs.
+The LSRAM user application (LSRAM_read_write) is available under /opt/microchip/apps directory in rootfs.
 
 
 ```
-root@icicle-kit-es:~# cd /microchip-apps/
+root@icicle-kit-es:~# cd /opt/microchip/apps/
 ```
-
-Type the ./LSRAM_read_write command and Press Enter to execute the application.
+To run the application, follow these steps:
+1. Type the ./LSRAM_read_write command and Press Enter to execute the application.
 
 
 ```
-root@icicle-kit-es:/microchip-apps# ./LSRAM_read_write
+root@icicle-kit-es:/opt/microchip/apps# ./LSRAM_read_write
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to Exit  
 ```
 
-Enter 1 to perform memory test on LSRAM.
-After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
+2. Enter 1 to perform memory test on LSRAM.
+   After successful completion of memory test on LSRAM, "LSRAM memory test passed successfully" message is displayed on console.
 
 
 ```
-root@icicle-kit-es:/microchip-apps# ./LSRAM_read_write
+root@icicle-kit-es:/opt/microchip/apps# ./LSRAM_read_write
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to Exit
@@ -69,5 +66,5 @@ Comparing data
          Enter 2 to Exit
 ```
 
-Enter 2 to exit the application
+3. Enter 2 to exit the application
 
