@@ -6,7 +6,7 @@ Using this application, Read's and Write's to memory mapped Fabric LSRAM is perf
 
 ## Description:
 
-In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000.  For more information on Libero design, refer AC489 Application Note.
+In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md).
 
 The pre-built Linux image includes the following customization to access LSRAM from user space.
 
@@ -21,29 +21,27 @@ The pre-built Linux image includes the following customization to access LSRAM f
 
 ## Pre-Requisite:
 
-Before running this application, please follow AC489 Application Note and ensure the following steps are completed:
+Ensure to follow the documentation provided on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+1. Programming the ICICLE KIT reference design
+2. Writing the Pre-built Linux Image to eMMC or SD
+3. Initiating Linux boot
 
-1. Setting up the ICICLE kit
-2. Programming the provided job file [Programming_Job_File](https://github.com/polarfire-soc/apps/blob/master/linux_applications/Hardware/Programming_Job_File/Programming_file.zip)
-3. Programming the provided Linux image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
-4. Booting Linux
 
 ## Running the User Application:
 
-This application is part of Linux pre-built image [mpfs-dev-cli-icicle-kit-es-AC489_linux.rootfs.wic](https://bit.ly/3ln5K4Y).
 
-The LSRAM user application (LSRAM_read_write) is available under /microchip-apps directory in rootfs.
+The LSRAM user application (LSRAM_read_write) is available under /opt/microchip/apps directory in rootfs.
 
 
 ```
-root@icicle-kit-es:~# cd /microchip-apps/
+root@icicle-kit-es:~# cd /opt/microchip/apps/
 ```
 
 Type the ./LSRAM_read_write command and Press Enter to execute the application.
 
 
 ```
-root@icicle-kit-es:/microchip-apps# ./LSRAM_read_write
+root@icicle-kit-es:/opt/microchip/apps# ./LSRAM_read_write
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to Exit  
@@ -54,7 +52,7 @@ After successful completion of memory test on LSRAM, "LSRAM memory test passed s
 
 
 ```
-root@icicle-kit-es:/microchip-apps# ./LSRAM_read_write
+root@icicle-kit-es:/opt/microchip/apps# ./LSRAM_read_write
          # Choose one of  the following options:
          Enter 1 to perform memory test on LSRAM
          Enter 2 to Exit
