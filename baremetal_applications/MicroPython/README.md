@@ -12,21 +12,17 @@ The following figure shows the block diagram of the design.
 
 The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and GPIO will be integrated into MicroPython Source code to show basic functionality with commands.
 
-## Libero Programming job file link 
+## Libero Programming Job File 
 
 [Job File](https://github.com/polarfire-soc/icicle-kit-reference-design/releases/download/2020.12/Icicle-Kit-2020.12.zip)
 
 ## Requirements
 
--ICICLE Kit (MPFS250T-FCVG484EES)
-
--SoftConsole v6.5
-
--Serial Terminal program (PuTTY or TeraTerm)
-
--Host PC 
-
-- Windows 10 OS
+- ICICLE Kit (MPFS250T-FCVG484EES)
+- SoftConsole v6.5
+- Serial Terminal program (PuTTY or TeraTerm)
+- Host PC 
+  - Windows 10 OS
 
 ## Pre-Requisite
 
