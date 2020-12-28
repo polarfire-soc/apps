@@ -10,7 +10,7 @@ This application executes the following functions:
 
 ## Description
 
-In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from way 15. The L2 LIM can be accessed from 0x0800_0000. MSS MMUART_0 is used in the design for serial communication between the user and the application. More information on the Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
+In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from way 15. The L2 LIM can be accessed from 0x0800_0000. MSS MMUART_0 is used in the design for serial communication between the user and the application. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 
 ## Requirements
