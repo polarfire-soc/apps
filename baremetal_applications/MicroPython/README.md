@@ -12,10 +12,11 @@ The block diagram of the design is as follows
 
 The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and GPIO will be integrated into MicroPython Source code to show basic functionality with commands.
 
-##Libero Programming job file link
+## Libero Programming job file link
 https://github.com/polarfire-soc/icicle-kit-reference-design/releases/download/2020.12/Icicle-Kit-2020.12.zip
 
-##Requirements
+## Requirements
+
 -ICICLE Kit (MPFS250T-FCVG484EES)
 
 -SoftConsole v6.5
@@ -24,7 +25,7 @@ https://github.com/polarfire-soc/icicle-kit-reference-design/releases/download/2
 
 -Host PC - Windows 10 OS
 
-##Pre-Requisite
+## Pre-Requisite
 
 Before running the user application, ensure to complete the following steps:
 1. Setting up the jumpers on ICICLE Kit (https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md)
@@ -36,7 +37,7 @@ Before running the user application, ensure to complete the following steps:
 5. Download the micropython.bin from the following link: 
    The micropython.bin file can be cross complied using Linux host machine as explained in Cross-Compiling MicroPython for Polarfire SoC ICICLE Kit (RISCV architecture).
    
-##Running the Application 
+## Running the Application 
 
 After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the application runs from loosely integrated memory (LIM). The application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
 Note: This SoftConsole project can also be built in release mode and run from eNVM. Click Run > External Tools > PolarFire SoC program non-secure boot mode 1 to run the application from eNVM.
@@ -60,7 +61,7 @@ To run the demo, perform the following steps:
 
 6.  Using the Micropython, you can perform mathematical operations as shown in the following figure. 
 
-##Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V architecture)
+## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V architecture)
 
 Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux host machine. Download the MicroPython source code from the following link: Bitbucket link.
 
