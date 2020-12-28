@@ -7,9 +7,7 @@ Using this application, a shared uncached LPDDR4 memory space is accessed by  li
 
 ## Description
 
-In the Libero design, fabric LSRAM and fabric DMA Controller are interfaced to MSS via FIC. The shared LPDDR4 memory region (0XC0000000-0xC000FFFF) is accessed via  uncached path for fabric as shown in following figure.
-
-More information on Libero design is available on [GitHub](https://github.com/polarfire-soc/icicle-kit-reference-design).
+In the Libero design, fabric LSRAM and fabric DMA Controller are interfaced to MSS via FIC. The shared LPDDR4 memory region (0XC0000000-0xC000FFFF) is accessed via  uncached path for fabric as shown in following figure. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 ![](./images/Libero_dis.png)
 
@@ -45,9 +43,9 @@ The C application waits for the interrupt assertion and validates the data once 
 - ICICLE Kit (MPFS250T-FCVG484E)
 - Host PC - Windows 10 OS
 
-## Pre requisite
+## Pre-Requisite
 
-Ensure to follow the documentation provided on [GitHub](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+Ensure to follow the documentation provided on [Updating PolarFire SoC Icicle-Kit FPGA Design and Linux Image page](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
 1. Programming the ICICLE KIT reference design
 2. Writing the Pre-built Linux Image to eMMC or SD
 3. Initiating Linux boot
