@@ -40,26 +40,41 @@ Before running the user application, ensure to complete the following steps:
 ## Running the Application 
 
 After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the application runs from loosely integrated memory (LIM). The application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
+
 Note: This SoftConsole project can also be built in release mode and run from eNVM. Click Run > External Tools > PolarFire SoC program non-secure boot mode 1 to run the application from eNVM.
+
+![](./images/micropython_printscreen_1.png)
 
 To run the demo, perform the following steps:
 
-1. On Tera Term, select File >Transfer > YMODEM > Send to transfer micropython.bin as shown in the following figure. The Tera Term: YMODEM Send Dialog appears.
+1. On Tera Term, select File > Transfer > YMODEM > Send to transfer micropython.bin as shown in the following figure. The Tera Term: YMODEM Send Dialog appears.
+
+![](./images/micropython_printscreen_2.png)
 
 2. Browse the micropython.bin and click Open as shown in the following figure.
 
+![](./images/micropython_printscreen_3.png)
+
 3. The file is transferred as shown in the following figure. It takes around 30 sec.
+
+![](./images/micropython_printscreen_4.png)
 
 4. After transferring micropython.bin, bootloader switches the execution to the MicroPython. U54 starts executing MicroPython from LPDDR4 and the MicroPython command prompt appears on Tera Term as shown in the following figure.
 
-5.  Using the MicroPython, you can switch ON and OFF the LEDs. Following are the commands to switch ON and OFF the LEDs. 
+![](./images/micropython_printscreen_5.png)
+
+5. Using the MicroPython, you can switch ON and OFF the LEDs. Following are the commands to switch ON and OFF the LEDs. 
 
 - from machine import Pin
 - led = Pin<<''GPIO2_0'', 16>, Pin.OUT>
 - led.value<1> (Now, the LED1 is ON)
 - led.value<0> (to switch OFF the LED1)
 
-6.  Using the Micropython, you can perform mathematical operations as shown in the following figure. 
+![](./images/micropython_printscreen_6.png)
+
+6.  Using the Micropython, you can perform mathematical operations as shown in the following figure.
+
+![](./images/micropython_printscreen_7.png)
 
 ## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V architecture)
 
