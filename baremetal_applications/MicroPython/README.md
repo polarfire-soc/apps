@@ -1,9 +1,13 @@
-Running Micropython
-Objective:
+# MicroPython
+
+## Objective
+
 The Scope of the project is to build MicroPython for PolarFire SoC RISC-V architecture and execute the MicroPython on ICICLE KIT. 
 
-Design Description:
+## Design Description
+
 The block diagram of the design is as follows
+
 ![](./images/running_micropython.jpg)
 
 The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and GPIO will be integrated into MicroPython Source code to show basic functionality with commands.
