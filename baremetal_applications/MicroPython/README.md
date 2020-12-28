@@ -2,9 +2,9 @@
 
 ## Objective
 
-The Scope of the project is to build MicroPython for PolarFire SoC RISC-V architecture and execute the MicroPython on ICICLE KIT. 
+The Scope of the project is to build MicroPython for PolarFire SoC RISC-V architecture and execute the MicroPython on the ICICLE Kit. 
 
-## Design Description
+## Description
 
 The following figure shows the block diagram of the design.
 
@@ -12,13 +12,9 @@ The following figure shows the block diagram of the design.
 
 The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and GPIO will be integrated into MicroPython Source code to show basic functionality with commands.
 
-## Libero Programming Job File 
-
-[Job File](https://github.com/polarfire-soc/icicle-kit-reference-design/releases/download/2020.12/Icicle-Kit-2020.12.zip)
-
 ## Requirements
 
-- ICICLE Kit (MPFS250T-FCVG484EES)
+- ICICLE Kit (MPFS250T_ES-FCVG484E)
 - SoftConsole v6.5
 - Serial Terminal program (PuTTY or TeraTerm)
 - Host PC 
@@ -28,15 +24,13 @@ The bootloader application runs using E51 monitor core and gets the MicroPython 
 
 Before running the user application, ensure to complete the following steps:
 1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
-2. Setting up the Serial Terminal 
-    - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
+2. Setting up the Serial Terminal: 
+    - Select the COM port which is connected to the following interface:  Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the job file. 
-4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
-5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables).
-
-   The micropython.bin file can be cross complied using Linux host machine as explained in Cross-Compiling MicroPython for Polarfire SoC ICICLE Kit (RISCV architecture).
-   
+3. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md). 
+4. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
+5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables), this is the cross-compiled binary image which can be used to run the design. If customization is required for adding more peripherals, then the Micropython source with required changes needs to be cross-compiled as described in Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architechture) section.
+ 
 ## Running the Application 
 
 After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the application runs from loosely integrated memory (LIM). The application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
@@ -76,9 +70,9 @@ To run the demo, perform the following steps:
 
 ![](./images/micropython_printscreen_7.png)
 
-## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V architecture)
+## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architecture)
 
-Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux host machine. Download the MicroPython source code from the following link: Bitbucket link.
+Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux host machine. Download the [icicle_kit_micropython_source.zip](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/icicle_kit_micropython_source.zip?at=develop_12_6_deliverables).
 
 To cross compile the MicroPython, follow:
 
