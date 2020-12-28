@@ -35,7 +35,7 @@ Before running the user application, ensure to complete the following steps:
 
 After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the application runs from loosely integrated memory (LIM). The application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
 
-Note: This SoftConsole project can also be built in release mode and run from eNVM. Click Run > External Tools > PolarFire SoC program non-secure boot mode 1 to run the application from eNVM.
+Note: This SoftConsole project can also be built in release mode and run from eNVM. Select Run > External Tools > PolarFire SoC program non secure boot mode 1 option to program the eNVM with the application and execute it. 
 
 ![](./images/micropython_printscreen_1.png)
 
