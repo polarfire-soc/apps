@@ -45,7 +45,7 @@ The C application waits for the interrupt assertion and validates the data once 
 
 ## Pre-Requisite
 
-Ensure to follow the documentation provided on [Updating PolarFire SoC Icicle-Kit FPGA Design and Linux Image page](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
+Ensure to follow the documentation provided on [Updating PolarFire SoC Icicle-Kit FPGA Design and Linux Image](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) and complete the following steps:
 1. Programming the ICICLE KIT reference design
 2. Writing the Pre-built Linux Image to eMMC or SD
 3. Initiating Linux boot
