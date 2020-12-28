@@ -31,7 +31,7 @@ The bootloader application runs using E51 monitor core and gets the MicroPython 
 ## Pre-Requisite
 
 Before running the user application, ensure to complete the following steps:
-1. Setting up the jumpers[jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
+1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
 2. Setting up the Serial Terminal 
     - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
