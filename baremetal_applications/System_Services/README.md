@@ -8,6 +8,8 @@ This SoftConsole project demonstrates the execution of PolarFire SoC system serv
 
 As shown in the following figure, the MSS is interfaced with the system controller via the SCB (system controller bus) bridge. MSS initiates system service requests via the SCB bridge which includes System Service Interface (SSI).
 
+![](..images/image_1.png)
+
 The following points summarize the system service flow:
 
 - The host PC sends the system service request to MSS MMUART via the UART interface.
