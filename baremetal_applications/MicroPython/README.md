@@ -10,7 +10,7 @@ The following figure shows the block diagram of the design.
 
 ![](./images/running_micropython.jpg)
 
-The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and MSS GPIO are integrated into MicroPython Source code to show basic functionality with Python commands.
+This design uses a bootloader application which runs on E51 core to copy the MicroPython application from Host PC to LPDDR4 using ymodem. Then, the bootloader switches the execution to MicroPython. The MicroPython is executed by U54 core from LPDDR4. The MSS UART and MSS GPIO are integrated into MicroPython Source code to show basic functionality with Python commands. The Command line interface (CLI) of MicroPython will be shown on serial terminal program.
 
 ## Requirements
 
@@ -26,13 +26,13 @@ Before running the user application, ensure to complete the following steps:
 2. Setting up the Serial Terminal: 
     - Select the COM port which is connected to the following interface:  Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md). 
-4. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
-5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables), this is the cross-compiled binary image which can be used to run the design. If customization is required for adding more peripherals, then the MicroPython source with required changes needs to be cross-compiled as described in Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architechture) section.
+3. Use FlashPro Express to program the ICICLE Kit with the [PolarFire SoC ICICLE Kit Reference Design job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md). 
+4. Download the provided Bootloader application [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
+5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables), this is the cross-compiled binary image which can be used to run the demo of MicroPython. If customization is required for adding more peripherals, then the MicroPython source with required changes needs to be cross-compiled as described in Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architechture) section below.
  
 ## Running the Application 
 
-After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the application runs from loosely integrated memory (LIM). The application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
+After the device is programmed, power cycle the board. Build and launch the SoftConsole project in Debug mode. In Debug mode, the bootloader application runs from loosely integrated memory (LIM). The bootloader application prints the menu on the Tera Term program through the UART interface, as shown in following figure. This program waits to load the micropython.bin to LPDDR4 over ymodem.
 
 Note: This SoftConsole project can also be built in release mode and run from eNVM. Select Run > External Tools > PolarFire SoC program non secure boot mode 1 option to program the eNVM with the application and execute it. 
 
@@ -87,16 +87,16 @@ To cross compile the MicroPython, follow:
 ```
 
 2. Build the MicroPython.
-```
-   untar micropython_release_1_9_3.tar.gz
-   
-   tar -xvzf micropython_release_1_9_3.tar.gz
-```   
+
+   Extract the file from icicle_kit_micropython_source.zip
+
+   cd icicle_kit_micropython_source/micropython_release_1_9_3
+
    cd path to micropython folder/micropython_release_softfloat/ports/icicle_miv
 
    For example, 
 ```
-   cd micropython1_9_3/micropython_release_softfloat/ports/icicle_miv
+   cd micropython_release_1_9_3/micropython_release_softfloat/ports/icicle_miv
 
    make clean
 
