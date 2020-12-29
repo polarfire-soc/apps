@@ -40,7 +40,7 @@ The C application waits for the interrupt assertion and validates the data once 
 
 ## Hardware Requirements
 
-- ICICLE Kit (MPFS250T-FCVG484E)
+- ICICLE Kit (MPFS250T_ES-FCVG484E)
 - Host PC - Windows 10 OS
 
 ## Pre-Requisite
