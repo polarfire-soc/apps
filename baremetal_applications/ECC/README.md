@@ -1,4 +1,4 @@
-# Single-Bit Error Dectection and Correction for L2 LIM
+# Single-Bit Error Detection and Correction for L2 LIM
 
 ## Objective 
 
@@ -10,7 +10,7 @@ This application executes the following functions:
 
 ## Description
 
-In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from way 15. The L2 LIM can be accessed from 0x0800_0000. MSS MMUART_0 is used in the design for serial communication between the user and the application. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
+In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from way 15. The L2 LIM can be accessed from 0x0800_0000. MSS MMUART_0 is used in the design for serial communication between the user and the application. For more information about the L2 Cache configuration, see MSS configuration of [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
 
 ## Requirements
@@ -28,14 +28,14 @@ Before running the user application, ensure to complete the following steps:
 2. Setting up the Serial Terminal:
    - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
    - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md).
-4. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/ECC/softconsole_project.7z?at=develop_12_6_deliverables).
+3. Use FlashPro Express to program the ICICLE Kit with the [PolarFire SoC ICICLE Kit Reference Design job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md).
+4. Download the L2 LIM EDAC application [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/ECC/softconsole_project.7z?at=develop_12_6_deliverables).
 
 ## Running the Application
 
 After the device is programmed, power cycle the board. To run the application, follow these steps:
 
-1. Launch SoftConsole v6.5, open the ECC project.
+1. Launch SoftConsole v6.5, open the downloaded L2 LIM EDAC application project.
 2. Build the SoftConsole project in release mode. This application is built using ITIM as stack and eNVM as code section. 
 3. Select Run > External Tools > PolarFire SoC program non secure boot mode 1 option to program the eNVM with the application and execute it.
 
@@ -68,8 +68,7 @@ The following options are displayed on the Serial Terminal.
 7. Type 4 to perform L2 LIM Memory access
 8. Type 2 to get the updated ECC Fix_count register value. The value should be incremented by 1. 
 
-This indicates that the single-bit error is detected and corrected.
-
+This indicates that the single-bit error is detected and corrected. This concludes running the L2 LIM EDAC application on ICICLE Kit.
 
 
 
