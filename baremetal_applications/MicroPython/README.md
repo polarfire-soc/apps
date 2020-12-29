@@ -2,7 +2,7 @@
 
 ## Objective
 
-The Scope of the project is to build MicroPython for PolarFire SoC RISC-V architecture and execute the MicroPython on the ICICLE Kit. 
+The scope of the project is to build MicroPython for PolarFire SoC RISC-V architecture and execute the MicroPython on the ICICLE Kit. 
 
 ## Description
 
@@ -10,15 +10,14 @@ The following figure shows the block diagram of the design.
 
 ![](./images/running_micropython.jpg)
 
-The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and GPIO will be integrated into MicroPython Source code to show basic functionality with commands.
+The bootloader application runs using E51 monitor core and gets the MicroPython application over ymodem. The MicroPython application is copied to LPDDR4. Now, E51 monitor core switches the execution to U54 application core to execute MicroPython from LPDDR4. The Command line interface (CLI) of MicroPython will be shown on serial terminal program. The MSS UART and MSS GPIO are integrated into MicroPython Source code to show basic functionality with Python commands.
 
 ## Requirements
 
 - ICICLE Kit (MPFS250T_ES-FCVG484E)
 - SoftConsole v6.5
 - Serial Terminal program (PuTTY or TeraTerm)
-- Host PC 
-  - Windows 10 OS
+- Host PC - Windows 10 OS
 
 ## Pre-Requisite
 
@@ -29,7 +28,7 @@ Before running the user application, ensure to complete the following steps:
     - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
 3. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md). 
 4. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
-5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables), this is the cross-compiled binary image which can be used to run the design. If customization is required for adding more peripherals, then the Micropython source with required changes needs to be cross-compiled as described in Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architechture) section.
+5. Download the [micropython.bin](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/micropython.bin?at=develop_12_6_deliverables), this is the cross-compiled binary image which can be used to run the design. If customization is required for adding more peripherals, then the MicroPython source with required changes needs to be cross-compiled as described in Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architechture) section.
  
 ## Running the Application 
 
@@ -57,18 +56,20 @@ To run the demo, perform the following steps:
 
 ![](./images/micropython_printscreen_5.png)
 
-5. Using the MicroPython, you can switch ON and OFF the LEDs. Following are the commands to switch ON and OFF the LEDs. 
+5. Using the MicroPython, you can turn ON and OFF the LEDs. Following are the commands to turn ON and OFF the LEDs. 
 
 - from machine import Pin
 - led = Pin<<''GPIO2_0'', 16>, Pin.OUT>
-- led.value<1> (Now, the LED1 is ON)
-- led.value<0> (to switch OFF the LED1)
+- led.value<1> 
+- led.value<0> 
 
 ![](./images/micropython_printscreen_6.png)
 
 6.  Using the Micropython, you can perform mathematical operations as shown in the following figure.
 
 ![](./images/micropython_printscreen_7.png)
+
+This concludes running the MicroPython application on ICICLE kit. The SOftConsole Debug session can be terminated.
 
 ## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architecture)
 
@@ -77,23 +78,42 @@ Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux
 To cross compile the MicroPython, follow:
 
 1. Export the toolchain path.
-export PATH=$PATH:/path to Microchip/SoftConsole-v6.5/riscv-unknown-elf-gcc/bin
-For example, export PATH=$PATH:</home/microchip/Microchip/SoftConsole-v6.5/riscv-unknown-elf-gcc/bin
+```
+   export PATH=$PATH:/path to Microchip/SoftConsole-v6.5/riscv-unknown-elf-gcc/bin
+```  
+   For example, 
+``` 
+   export PATH=$PATH:</home/microchip/Microchip/SoftConsole-v6.5/riscv-unknown-elf-gcc/bin
+```
 
 2. Build the MicroPython.
+```
    untar micropython_release_1_9_3.tar.gz
+   
    tar -xvzf micropython_release_1_9_3.tar.gz
+```   
    cd path to micropython folder/micropython_release_softfloat/ports/icicle_miv
-   For example, cd micropython1_9_3/micropython_release_softfloat/ports/icicle_miv
-   make clean
-   make CROSS=2 V=1
-3. Generate the hex file.
-   cd build
-   riscv64-unknown-elf-objcopy -O ihex micropython.elf firmware.hex --change-section-lma *-0x80000000
-4. Generate the bin file.
-   cd build
-   riscv64-unknown-elf-objcopy -O binary -j .isr_vector -j .text -j .data  micropython.elf micropython.bin
 
- On successful compilation of source code, the output file (micropython.bin) is generated.
+   For example, 
+```
+   cd micropython1_9_3/micropython_release_softfloat/ports/icicle_miv
+
+   make clean
+
+   make CROSS=2 V=1
+```   
+3. Generate the hex file.
+```
+   cd build
+
+   riscv64-unknown-elf-objcopy -O ihex micropython.elf firmware.hex --change-section-lma *-0x80000000
+```   
+4. Generate the bin file.
+```
+   cd build
+
+   riscv64-unknown-elf-objcopy -O binary -j .isr_vector -j .text -j .data  micropython.elf micropython.bin
+```   
+On successful compilation of source code, the output file (micropython.bin) is generated.
 
 
