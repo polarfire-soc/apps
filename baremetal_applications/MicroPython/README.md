@@ -88,11 +88,11 @@ To cross compile the MicroPython, follow:
 
 2. Build the MicroPython.
 
-   Extract the file from icicle_kit_micropython_source.zip
-
+   Extract the file from icicle_kit_micropython_source.zip.
+```
    cd icicle_kit_micropython_source/micropython_release_1_9_3
-
-   cd path to micropython folder/micropython_release_softfloat/ports/icicle_miv
+```
+   cd path to micropython folder/micropython_release_softfloat/ports/icicle_miv.
 
    For example, 
 ```
