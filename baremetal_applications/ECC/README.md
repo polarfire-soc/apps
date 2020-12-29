@@ -6,7 +6,7 @@ This application executes the following functions:
 
 1. Initializes the L2 LIM (Loosely Integrated Memory) so that false errors are not created.
 2. Injects an error into the L2 LIM to verify that the detection and correction logic is working.
-3. Monitors the Single Error count.
+3. Monitors the single-bit error count.
 
 ## Description
 
@@ -15,7 +15,7 @@ In the Libero design, L2 Cache is configured as L2 LIM with 8 ways starting from
 
 ## Requirements
 
-- ICICLE Kit (MPFS250T-FCVG484E)
+- ICICLE Kit (MPFS250T_ES-FCVG484E)
 - SoftConsole v6.5
 - Serial Terminal program (PuTTY or TeraTerm)
 - Host PC - Windows 10 OS
@@ -26,10 +26,10 @@ Before running the user application, ensure to complete the following steps:
 
 1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
 2. Setting up the Serial Terminal:
- - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
- - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
-3. Use FlashPro Express to program the ICICLE Kit with the job file.
-4. Download [SoftConsole project](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
+   - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0
+   - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None.
+3. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md).
+4. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/ECC/softconsole_project.7z?at=develop_12_6_deliverables).
 
 ## Running the Application
 
@@ -66,7 +66,7 @@ The following options are displayed on the Serial Terminal.
 5. Type 2 to get the initial ECC Fix_count register value. The initial ECC Fix_count register content will be a non-zero value.
 6. Type 3 to inject single bit error using Error injection register.
 7. Type 4 to perform L2 LIM Memory access
-8. Type 2 to get the updated ECC Fix count register value. The value should be incremented by 1. 
+8. Type 2 to get the updated ECC Fix_count register value. The value should be incremented by 1. 
 
 This indicates that the single-bit error is detected and corrected.
 
