@@ -24,17 +24,15 @@ By default, the SCB bridge and the SCB Master block are available in the MSS, th
 - ICICLE Kit (MPFS250T_ES-FCVG484E)
 - SoftConsole v6.5
 - Serial Terminal program (PuTTY or TeraTerm)
-- Host PC 
-  - Windows 10 OS 
+- Host PC - Windows 10 OS 
 
 ## Pre-Requisite
 
 Before running the user application, ensure to complete the following steps:
 
 1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
-2. Setting up the Serial Terminal.
-3. Select the COM port which is connected to the following interface: 
-   - Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0. 
+2. Setting up the Serial Terminal:
+   - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0. 
    - Set Baud rate to “115200”, Set Data to 8-bit, Set Flow control to None. 
 4. Use FlashPro Express to program the ICICLE Kit with the [job file](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md). 
 5. Download [softconsole_project.7z](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/System_Services/softconsole_project.7z?at=refs%2Fheads%2Fdevelop_12_6_deliverables).
