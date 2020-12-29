@@ -1,4 +1,4 @@
-# Accessing shared LPDDR4 memory from fabric and linux user application
+# Accessing shared LPDDR4 Memory from Fabric and Linux User Application
 
 ## Objective
 
@@ -11,15 +11,15 @@ In the Libero design, fabric LSRAM and fabric DMA Controller are interfaced to M
 
 ![](./images/Libero_dis.png)
 
-The pre-built Linux image includes the following customization to access the uncached LPDDR4 region from user space.
+The Microchip PolarFire SoC Yocto BSP includes the following support to access the uncached LPDDR4 region from user space.
 
+- User application to perform data transfers from LSRAM to LPDDR4 using uio-dev node (/dev/uio).
 - A device tree node (uio-generic) is added for LSRAM and uncached LPDDR4 memory addresses in the device tree file. 
 - A device tree node (uio-generic) is added for DMA Controller memory address in the device tree file.
 - A driver for Fabric DMA controller is added in the uio framework to handle DMA interrupt.
 - UIO framework with DMA support is enabled in the Linux configuration file (defconfig).
-- User application performs data transfers from LSRAM to LPDDR4 using uio-dev node (/dev/uio).
 
-The following table lists the addresses and sizes included in device tree nodes based on AC489 Libero design.
+The following table lists the addresses and sizes included in device tree nodes based on ICICLE Kit Reference Design.
 
 | Component | Start Addr | Size |
 | --- | --- | --- |
