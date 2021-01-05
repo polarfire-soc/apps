@@ -8,11 +8,11 @@ Using this application, Read's and Write's to memory mapped Fabric LSRAM are per
 
 In the Libero design, Fabric LSRAM component is interfaced to the MSS using FIC_0 and it is accessible to the processors at 0x61000000. For more information about the Libero design, see [ICICLE Kit Reference Design](https://github.com/polarfire-soc/icicle-kit-reference-design).
 
-The pre-built Linux image includes the following customization to access LSRAM from user space.
+The Microchip PolarFire SoC Yocto BSP includes the following support to access LSRAM from user space:
 
+- User application to perform LSRAM memory test using uio-dev node (/dev/uio).
 - A device tree node (uio-generic) is added with LSRAM memory address and size of 64KB in the device tree file.
 - UIO framework is enabled in the Linux configuration file (defconfig).
-- User application performs LSRAM memory test using uio-dev node (/dev/uio).
 
 ## Hardware Requirements
 
