@@ -59,7 +59,7 @@ To run the demo, perform the following steps:
 5. Using the MicroPython, you can turn ON and OFF the LEDs. Following are the commands to turn ON and OFF the LEDs. 
 
 - from machine import Pin
-- led = Pin((<''GPIO2_0'', 16), Pin.OUT)
+- led = Pin((''GPIO2_0'', 16), Pin.OUT)
 - led.value(1) 
 - led.value(0) 
 
