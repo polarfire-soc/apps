@@ -73,7 +73,7 @@ This concludes running the MicroPython application on ICICLE kit. The SOftConsol
 
 ## Cross-Compiling MicroPython for PolarFire SoC ICICLE Kit (RISC-V Architecture)
 
-Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux host machine. Download the [icicle_kit_micropython_source.zip](https://bitbucket.microchip.com/projects/FPGA_PFSOC_ES/repos/apps/browse/baremetal_applications/MicroPython/icicle_kit_micropython_source.zip?at=develop_12_6_deliverables).
+Ensure to install prebuilt toolchain for RISC-V or SoftConsole v6.5 on the Linux host machine. Download the [icicle_kit_micropython_source.zip](https://bit.ly/3seuYGV).
 
 To cross compile the MicroPython, follow:
 
