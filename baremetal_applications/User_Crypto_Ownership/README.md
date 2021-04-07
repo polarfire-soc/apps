@@ -10,7 +10,14 @@ This reference design shows how to perform switching of the User Cryptoprocessor
 
 The User Cryptoprocessor can be configured in the following ways using Standalone MSS configurator:
 
-Need to add table
+### User Cryptoprocessor Modes
+| Modes | Description |
+|-------|-------------|
+| MSS   | The User Cryptoprocessor is only available to the MSS |
+| Fabric | The User Cryptoprocessor is only available to the Fabric |
+| Shared-MSS | The User Cryptoprocessor is initially connected to the MSS and can be requested by the Fabric |
+| Shared-Fabric | The User Cryptoprocessor is initially connected to the Fabric and can be requested by the MSS |
+
 
 In this reference design, Shared-MSS mode is used for configuration. In the Shared-MSS mode, the User Cryptoprocessor is initially connected to the MSS, and can be requested by the Fabric. The ownership of the User Cryptoprocessor can be switched between MSS and Fabric via a handshake interface. The handshake interface is asynchronous with synchronizers inside the MSS as required.
 
