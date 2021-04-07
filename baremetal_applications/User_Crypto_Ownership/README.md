@@ -78,5 +78,69 @@ To run the demo, perform the following steps:
 
 1. Press '1' to perform AES CCM encryption using the User Cryptoprocessor. The application prompts to enter a 128-bit key, as shown in the following figure. 
 
+![](./images/application_menu_enter_128_bit_16_byte_key.png)
+
+2. Enter the AES key provided in the test vector and press Enter. The application prompts for Nonce, as shown in the following figure.
+
+![](./images/application_menu_nonce.png) 
+
+3. Enter the Nonce provided in the test vector and press Enter. The application prompts to enter AAD, as shown in the following figure.
+
+![](./images/application_menu_additional_authentication_data.png) 
+
+4. Enter the AAD provided in the test vector and press Enter. The application prompts to enter input data to encrypt and authenticate, as shown in the following figure.
+
+![](./images/application_menu_input_data_to_encrypt_and_authenticate.png) 
+
+5. Enter the input data to encrypt and authenticate provided in the test vector and press Enter. The application prompts to enter the number of octets in the authentication field, as shown in the following figure.
+
+![](./images/application_menu_number_of_octets_in_authentication_field.png) 
+
+6. Press '2' for 8 bytes of Encrypted and Authentication data. The result of the AES CCM encryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector, as shown in the following figure.
+
+![](./images/application_menu_encrypted_and_authenticated_data.png) 
+
+7. Press any key to continue to evaluate the AES operation. The application prints the menu again on Tera Term program.
+
+8. Follow the instructions printed on the Tera Term program.
+
+9. The result of the AES CCM decryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector.
+
+![](./images/decryption_data.png) 
+
+10. Press any key to continue to evaluate the any operation. The application prints the menu again on Tera Term program.
+
+11. Press '3' to release the User Cryptoprocessor access from MSS to Fabric as shown in the following figure. When '3' is pressed, then MSS releases the User Cryptoprocessor and wait for the request from Fabric.
+
+![](./images/release_usercrypto_mss_to_fabric.png) 
+
+12. Switch to COM6 Tera Term window to switch to the fabric master using COM6 UART terminal and request for the User Cryptoprocessor access from MSS.
+
+![](./images/switch_to_interface1.png) 
+
+13. Press '4' to request for fabric User Cryptoprocessor access as shown in the following figure.
+
+![](./images/request_for_fabric_usercrypto_access.png) 
+
+14. Press '1' to perform AES CCM encryption using the User Cryptoprocessor and follow Step 2 to Step 6. The result of the AES CCM encryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector.
+
+![](./images/step14_perform_aes_ccm_encryption.png) 
+
+15. Press '2' to perform AES CCM decryption using the User Cryptoprocessor and follow Step 2 to Step 6. The result of the AES CCM decryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector.
+
+![](./images/com6_tera_term_application_menu_Decryption.png) 
+
+16. Press '3' to release the User Cryptoprocessor access from Fabric to MSS as shown in the following figure. Fabric master will not be able to access User Cryptoprocessor until it requests again.
+
+![](./images/com6_tera_term_application_menu_release_access_from_fabric.png) 
+
+17. Switch to COM5 Tera Term window. COM5 terminal is used for MSS User Cryptoprocessor access as shown in step1. Press '4' to request control back to MSS from Fabric as shown in the following figure.
+
+![](./images/com5_request_control_back_to_MSS_from_fabric.png) 
+
+18. Now the User Cryptoprocessor is available to the MSS and MSS can perform the AES CCM encryption or decryption as described above..
+
+This concludes the demo of ownership transfer of User Cryptoprocessor between MSS and FPGA fabric.
+
 
 
