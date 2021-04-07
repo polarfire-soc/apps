@@ -24,7 +24,17 @@ In this reference design, Shared-MSS mode is used for configuration. In the Shar
 
 The following table lists the ports that are exposed from MSS block when Share-MSS or Shared-Fabric mode is selected from the Standalone MSS configurator.
 
-Need to add table
+### Crypto Port List
+
+| Port Name | Direction | Description |
+|-----------|-----------|-------------|
+| CRYPTO_RELEASE_F2M | Input | Fabric released the User Cryptoprocessor |
+| CRYPTO_REQUEST_F2M | Input | Fabric request or is using the User Cryptoprocessor |
+| CRYPTO_MSS_REQUEST_M2F | Output | MSS request or is using the User Cryptoprocessor |
+| CRYPTO_MSS_RELEASE_M2F | Output | MSS released the User Cryptoprocessor |
+| CRYPTO_OWNER_M2F | Output | Indicates that the Fabric owns the User Cryptoprocessor and the fabric interface is enabled |
+| CRYPTO_MSS_OWNER_M2F | Output | Indicates that the MSS owns the User Cryptoprocessor and the fabric interface is disabled |
+
 
 The following figure shows the top-level block diagram of the design.
 
