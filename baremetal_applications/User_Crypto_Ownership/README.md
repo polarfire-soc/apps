@@ -1,7 +1,7 @@
 # Dynamic Switching of User Cryptoprocessor Ownership
 
 ## Objective
-The scope of the reference design is to perform cryptographic operations such as encryption, decryption, dynamic switching of User Cryptoprocessor ownership from microcontroller subsystem (MSS) to fabric and vice versa using the User Cryptoprocessor as a coprocessor to a host general purpose processor.
+The scope of the reference design is to perform the following cryptographic operations using the User Cryptoprocessor: encryption, decryption, dynamic switching of User Cryptoprocessor ownership from microcontroller subsystem (MSS) to fabric and vice versa. The User Cryptoprocessor is a coprocessor to the host general purpose processor.
 
 Note: Microchip provides an Athena TeraFire Cryptographic Applications Library (CAL) to access User Cryptoprocessor functions. CAL driver requires a license. Email [FPGA_marketing@microchip.com](FPGA_marketing@microchip.com) to request the design files. This design is targeted for PolarFire SoC Icicle kit.
 
