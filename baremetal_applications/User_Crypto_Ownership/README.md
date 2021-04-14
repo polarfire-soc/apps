@@ -73,7 +73,7 @@ Before running the user application, ensure to complete the following steps:
 1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-icicle-kit-es/updating-icicle-kit/updating-icicle-kit-design-and-linux.md) on the ICICLE Kit.
 2. Setting up the Serial Terminal - one for MSS (Interface 0) and one for Fabric (Interface 1):
     - Select the COM port which is connected to the following interface:  Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
-    - Set Baud rate to <93>115200<94>, Set Data to 8-bit, Set Flow control to None.
+    - Set Baud rate to 115200, Set Data to 8-bit, Set Flow control to None.
 3. Use FlashPro Express to program the ICICLE Kit with the provided programming file.
 
 ## Running the Application
