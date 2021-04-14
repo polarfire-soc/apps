@@ -16,7 +16,7 @@ Per [PolarFire SoC Register map](http://www.microsemi.com/index.php?option=com_d
 
 Refer to the bit definitions of the south-west CCC register documented in the PolarFire SoC Register map.
 
-Table1: CCC Registers
+Table 1: CCC Registers
 
 | S.No | Register Name| Description | Address |
 |------|--------------|-------------|---------|
@@ -49,19 +49,19 @@ where,
 
 The PLL output divider values can be read from the following register bit fields as HEX values. 
 
--PLL OUT0 DIV = PLL_DIV_0_1 reg[14:8]
--PLL OUT1 DIV = PLL_DIV_0_1 reg[30:24]
--PLL OUT2 DIV = PLL_DIV_2_3_reg[14:8]
--PLL OUT3 DIV = PLL_DIV_2_3_reg[30:24]
--REF_DIV = CCC_PLL_REF_DIV_reg[13:8]
--FB DIV = CCC_SSCG_reg2[11:0]
+- PLL OUT0 DIV = PLL_DIV_0_1 reg[14:8]
+- PLL OUT1 DIV = PLL_DIV_0_1 reg[30:24]
+- PLL OUT2 DIV = PLL_DIV_2_3_reg[14:8]
+- PLL OUT3 DIV = PLL_DIV_2_3_reg[30:24]
+- REF_DIV = CCC_PLL_REF_DIV_reg[13:8]
+- FB DIV = CCC_SSCG_reg2[11:0]
 
 ## Requirements
 
--Icicle Kit (MPFS250T-FCVG484EES)
--SoftConsole v2021.1
--Serial Terminal program (PuTTY or TeraTerm)
--Host PC - Windows 10 OS
+- Icicle Kit (MPFS250T-FCVG484EES)
+- SoftConsole v2021.1
+- Serial Terminal program (PuTTY or TeraTerm)
+- Host PC - Windows 10 OS
 
 ## Pre-Requisite:
 
@@ -70,8 +70,8 @@ Before running the user application, ensure to complete the following steps:
 1. Setting up the [jumpers](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/boards/mpfs-Icicle-kit-es/updating-Icicle-kit/updating-Icicle-kit-design-and-linux.md) on Icicle Kit.
 2. The CCC PLL output clocks are mapped to J26 connector pins 32, 36, 38, and 40 on the Icicle kit. Connect these J26 pins to an Oscilloscope for observing the PLL output frequencies.
 3. Setting up the Serial Terminal:
-   -Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
-   -Set Baud rate to 115200, Set Data to 8-bit, Set Flow control to None.
+   - Select the COM port which is connected to the following interface: Silicon Labs Quad CP2108 USB to UART BRIDGE: Interface 0.
+   - Set Baud rate to 115200, Set Data to 8-bit, Set Flow control to None.
 4. Use FlashPro Express to program the Icicle Kit with the job file. The Libero programming job file is available at https://github.com/polarfire-soc/Icicle-kit-reference-design.
 5. Download SoftConsole project from the following link: Link TBD
 
@@ -79,10 +79,10 @@ Before running the user application, ensure to complete the following steps:
 
 By running this application, the PLL output clocks are dynamically changed to the following new values:
 
--PLL OUT0 is changed to 240 MHz
--PLL OUT1 is changed to 100 MHz
--PLL OUT2 is changed to 100 MHz
--PLL OUT3 is changed to 75 MHz
+- PLL OUT0 is changed to 240 MHz
+- PLL OUT1 is changed to 100 MHz
+- PLL OUT2 is changed to 100 MHz
+- PLL OUT3 is changed to 75 MHz
 
 After the device is programmed, power cycle the board. To run the application, complete the following steps:
 
@@ -116,17 +116,19 @@ Step 8: The PLL output frequencies can also be reconfigured by changing the PLL_
 The Transceiver (XCVR) registers can also be changed dynamically to change the XCVR data rate. This section describes the required registers and the general procedure for dynamically changing the Transceiver data rate in a PolarFire SoC design.
 
 ## Required Design Changes
--In the PF_DRI Configurator, the Transceiver Q0_Lane2 interface must be selected. The Q0_LANE2_DRI output port is exposed. Selected Quad0 Lane 2 as an example here.
--In the XCVR IP Configurator, select the Enable DRI option. The LANE0_DRI_SlAVE input port is exposed.
--Connect the MSS FIC3 master to the APBS port of the DRI IP.
--Connect the DRI:Q0_LANE2_DRI output port to the Transceiver:LANE0_DRI_SlAVE input port.
--Map the XCVR TX_CLK and RX_CLK ports to 32 and 36 pins on J26 connector for observing the rate change.
+
+- In the PF_DRI Configurator, the Transceiver Q0_Lane2 interface must be selected. The Q0_LANE2_DRI output port is exposed. Selected Quad0 Lane 2 as an example here.
+- In the XCVR IP Configurator, select the Enable DRI option. The LANE0_DRI_SlAVE input port is exposed.
+- Connect the MSS FIC3 master to the APBS port of the DRI IP.
+- Connect the DRI:Q0_LANE2_DRI output port to the Transceiver:LANE0_DRI_SlAVE input port.
+- Map the XCVR TX_CLK and RX_CLK ports to 32 and 36 pins on J26 connector for observing the rate change.
 
 ## Description
 
 The XCVR reference clock is sourced from an on-board 100 MHz oscillator. There is no provision for an external loopback on the Icicle Kit. Use SmartDebug to initiate internal loopback. The DRI IP, in the fabric, is interfaced with the Transceiver IP via APB for dynamic reconfiguration. The APB bus is used to dynamically modify the Transceiver register values. The following Quad0_Lane2 XCVR registers are accessed via FIC3 from MSS with an offset of 0x40000000.
 
-Table2 : XCVR Registers of Q0 LANE2 
+Table 2: XCVR Registers of Q0 LANE2
+ 
 | S.NO | Register Name | Description | Register Map | Required Values for DRI |
 |------|---------------|-------------|--------------|-------------------------|
 | 1 | SER_RSTPD| PMA Lane2 Serializer Reset and PD (Base address) | 0x4104 4078 | 0x3 - Assert Reset, 0x1 - DeAssert Reset |
@@ -150,7 +152,10 @@ The base address of PMA Lane2 is 0x01044000, PCS LANE2 is 0x0004 4068,  and PMA 
 8. De-assert reset for the deserializer.
 9. Assert and de-assert the soft PCS reset.
 
-Using SoftConsole, follow the above mentioned sequence for writing to the registers listed in Table2. The following table shows the expected TX_CLK and RX_CLK values.
+Using SoftConsole, follow the above mentioned sequence for writing to the registers listed in Table 2. The following table shows the expected TX_CLK and RX_CLK values.
+
+Table 3: Expected Results
+
 |S.No| Data Rate Selection | Expected Clock Frequency at TX_CLK and RX_CLK Ports |
 |----|---------------------|-----------------------------------------------------|
 | 1 | 1.25G | 25 MHz |
@@ -158,6 +163,3 @@ Using SoftConsole, follow the above mentioned sequence for writing to the regist
 | 3 | 5G | 100 MHz |
 
 The clock changes for each data rate change can be observed on an Oscilloscope. Use SmartDebug to observe the bit error rate.
-  
-
-
