@@ -100,7 +100,7 @@ Step 5: Press 1 to change the PLL OUT0 and PLL OUT1 divider values. The PLL_DIV_
 
 ![](./images/DRI_screenshot_2.png)
 
-Step 6: Press 2 to change the PLL OUT2 and PLL OUT3 divider values. The PLL_DIV_2_3 register is written with 0x30001800 and the same is displayed on the serial terminal. On the Oscilloscope, the new output frequencies PLL OUT2 (100 MHz) and PLL OUT3 (75 MHz) can be observed.
+Step 6: Press 2 to change the PLL OUT2 and PLL OUT3 divider values. The PLL_DIV_2_3 register is written with 0x10000C00 and the same is displayed on the serial terminal. On the Oscilloscope, the new output frequencies PLL OUT2 (100 MHz) and PLL OUT3 (75 MHz) can be observed.
 
 ![](./images/DRI_screenshot_3.png)
 
