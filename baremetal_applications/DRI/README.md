@@ -1,6 +1,6 @@
 # Dynamic Reconfiguration of Hard IPs
 
-## Objective:
+## Objective
 
 This application demonstrates how to reconfigure PolarFire SoC FPGA Hard IP blocks such as Clock Conditioning Circuits (CCC) and Transceivers without reprogramming the FPGA.
 
@@ -63,7 +63,7 @@ The PLL output divider values can be read from the following register bit fields
 - Serial Terminal program (PuTTY or TeraTerm)
 - Host PC - Windows 10 OS
 
-## Pre-Requisite:
+## Pre-Requisite
 
 Before running the user application, ensure to complete the following steps:
 
