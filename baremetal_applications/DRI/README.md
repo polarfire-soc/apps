@@ -27,7 +27,6 @@ Table 1: CCC Registers
 | 5 | PLL_DIV_2_3 | PLL 2/3 division registers| 0x4840 0014 |
 | 6 | SSCG_REG2 | SSCG register2 | 0x4840 002C |
 
-The current design provides the option to access the south-west CCC registers via the MSS DRI interface using the System Controller Bridge (SCB). In this case, the CCC registers are accessed with an offset of 0x30000000 and hence the start of the first CCC register becomes 0x38400000. In this case, the DRI IP in the fabric is not used for dynamic reconfiguration.
 
 In the application, the following sequence is used for a glitch-free CCC reconfiguration:
 
