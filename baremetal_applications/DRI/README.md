@@ -6,7 +6,7 @@ This application demonstrates how to reconfigure PolarFire SoC FPGA Hard IP bloc
 
 ## Description
 
-In the reference design, the south-west CCC IP is configured to generate four fabric output clock frequencies of 100 MHz (PLL OUT0), 75 MHz (PLL OUT1), 50 MHz (PLL OUT2), and 25 MHz (PLL OUT3) respectively. These PLL output clocks are generated from a reference clock of 125 MHz. The CCC IP includes a Dynamic Reconfiguration Interface (DRI), which is enabled for dynamic reconfiguration without reprogramming the device. The PF_DRI block in the fabric is used to interface the CCC's DRI bus with MSS FIC3 interface. One of processors in the MSS can dynamically modify the CCC configuration register values through FIC3 interface.
+In the reference design, the south-west CCC IP is configured to generate four fabric output clock frequencies of 100 MHz (PLL OUT0), 75 MHz (PLL OUT1), 50 MHz (PLL OUT2), and 25 MHz (PLL OUT3) respectively. These PLL output clocks are generated from a reference clock of 160 MHz. The CCC IP includes a Dynamic Reconfiguration Interface (DRI), which is enabled for dynamic reconfiguration without reprogramming the device. The PF_DRI block in the fabric is used to interface the CCC's DRI bus with MSS FIC3 interface. One of processors in the MSS can dynamically modify the CCC configuration register values through FIC3 interface.
 
 The following figure shows the top-level block diagram of the design.
 
@@ -43,7 +43,7 @@ PLL OUT[X] = (REF_CLK × FB DIV)/(REF_DIV × (4 × OUT[X] DIV)
 
 where, 
 
-           REF_CLK is the reference clock (125 MHz) to CCC PLL.
+           REF_CLK is the reference clock (160 MHz) to CCC PLL.
 
            X = 0,1,2, and 3.
 
@@ -86,7 +86,7 @@ By running this application, the PLL output clocks are dynamically changed to th
 
 After the device is programmed, power cycle the board. To run the application, complete the following steps:
 
-Step 1: Launch SoftConsole v6.6 with the provided CCC DRI project.
+Step 1: Launch SoftConsole v2021.1 with the provided CCC DRI project.
 
 Step 2: Build the SoftConsole project in release mode. In this project, LIM is specified as stack and eNVM is specified as code section in the Linker script. 
 
@@ -106,7 +106,7 @@ Step 6: Press 2 to change the PLL OUT2 and PLL OUT3 divider values. The PLL_DIV_
 
 Step 7: Power cycle the board to load the initial PLL output values from the design.
 
-Step 8: The PLL output frequencies can also be reconfigured by changing the PLL_REF_FB register value. Press 3 for changing the reference clock divider value to 0x00000400. The PLL output values change to 125 MHz, 93.75 MHz, 62.25 MHz, and 31.25 MHz respectively. On the Oscilloscope, the new output frequencies can be observed.
+Step 8: The PLL output frequencies can also be reconfigured by changing the PLL_REF_FB register value. Press 3 for changing the reference clock divider value to 0x00000400. The PLL output values changed to 25 MHz, 18.75 MHz, 12.25 MHz, and 6.25 MHz respectively. On the Oscilloscope, the new output frequencies can be observed.
 
 ![](./images/DRI_screenshot_4.png)
 
