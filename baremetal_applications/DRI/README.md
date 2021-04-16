@@ -55,6 +55,10 @@ The PLL output divider values can be read from the following register bit fields
 - REF_DIV = CCC_PLL_REF_DIV_reg[13:8]
 - FB DIV = CCC_SSCG_reg2[11:0]
 
+Users can enter the required reference clock and output frequencies in the Libero CCC configurator and complete the Libero flow for getting the necessary divider values to be programmed for achieving the desired output frequencies. The required register configuration for the CCC is captured in the Design Initialization Data Report.xml under Generate Design Initialization Data step of Libero Design flow. These divider values must be used for dynamic reconfiguration of CCC.
+
+![](./images/reports_screenshot.png)
+
 ## Requirements
 
 - Icicle Kit (MPFS250T-FCVG484EES)
@@ -91,21 +95,29 @@ Step 2: Build the SoftConsole project in release mode. In this project, LIM is s
 
 Step 3: Select Run > External Tools > PolarFire SoC program non secure boot mode 1 for booting the application from eNVM directly.
 
-Step 4: The DRI menu is printed on the UART Serial Terminal (COM5, in this case) as shown in the following figure.
+Step 4: The DRI menu is printed on the UART Serial Terminal (COM3, in this case) as shown in the following figure.
 
 ![](./images/DRI_screenshot_1.png)
 
-Step 5: Press 1 to change the PLL OUT0 and PLL OUT1 divider values. The PLL_DIV_0_1 register is written with 0x0C000500 and the same is displayed on the serial terminal. On the Oscilloscope, the new output frequencies PLL OUT0 (240 MHz) and PLL OUT1 (100 MHz) can be observed.
+Step 5: Press 1 to change the PLL OUT0 and PLL OUT1 divider values. The PLL_DIV_0_1 register is written with 0x0C000500 (OUT0_DIV = 5 and OUT1_DIV = 12) and the same is displayed on the serial terminal.
+
+As a result of this configuration, the new output frequencies PLL OUT0 (240 MHz) and PLL OUT1 (100 MHz) can be observed on the Oscilloscope.
 
 ![](./images/DRI_screenshot_2.png)
 
-Step 6: Press 2 to change the PLL OUT2 and PLL OUT3 divider values. The PLL_DIV_2_3 register is written with 0x10000C00 and the same is displayed on the serial terminal. On the Oscilloscope, the new output frequencies PLL OUT2 (100 MHz) and PLL OUT3 (75 MHz) can be observed.
+Step 6: Press 2 to change the PLL OUT2 and PLL OUT3 divider values. The PLL_DIV_2_3 register is written with 0x10000C00 (OUT2_DIV =12  and OUT3_DIV = 16) and the same is displayed on the serial terminal.
+
+As a result of this configuration, the new output frequencies PLL OUT2 (100 MHz) and PLL OUT3 (75 MHz) can be observed on the Oscilloscope.  
 
 ![](./images/DRI_screenshot_3.png)
 
-Step 7: Power cycle the board to load the initial PLL output values from the design.
+Step 7: Power cycling the board initializes the CCC registers with the initial divider values as per the design.
 
-Step 8: The PLL output frequencies can also be reconfigured by changing the PLL_REF_FB register value. Press 3 for changing the reference clock divider value to 0x00000400. The PLL output values changed to 25 MHz, 18.75 MHz, 12.25 MHz, and 6.25 MHz respectively. On the Oscilloscope, the new output frequencies can be observed.
+Step 8: The PLL output frequencies can also be reconfigured by changing the PLL_REF_FB register value. Before changing the PLL_REF_FB register value, Users must verify the required reference clock divider value and output frequencies in the Libero CCC configurator and complete the Libero flow.
+
+Step 9: Press 3 for changing the reference clock divider value to 0x00000400 (RF_DIV = 4).
+
+As a result of this configuration, the PLL frequencies will change to 25 MHz, 18.75 MHz, 12.25 MHz, and 6.25 MHz respectively. On the Oscilloscope, the new output frequencies can be observed.
 
 ![](./images/DRI_screenshot_4.png)
 
@@ -117,7 +129,7 @@ The Transceiver (XCVR) registers can also be changed dynamically to change the X
 ## Required Design Changes
 
 - In the PF_DRI Configurator, the Transceiver Q0_Lane2 interface must be selected. The Q0_LANE2_DRI output port is exposed. Selected Quad0 Lane 2 as an example here.
-- In the XCVR IP Configurator, select the Enable DRI option. The LANE0_DRI_SlAVE input port is exposed.
+- In the XCVR IP Configurator, select the Enable DRI option. The LANE0_DRI_SLAVE input port is exposed.
 - Connect the MSS FIC3 master to the APBS port of the DRI IP.
 - Connect the DRI:Q0_LANE2_DRI output port to the Transceiver:LANE0_DRI_SlAVE input port.
 - Map the XCVR TX_CLK and RX_CLK ports to 32 and 36 pins on J26 connector for observing the rate change.
@@ -132,24 +144,20 @@ Table 2: XCVR Registers of Q0 LANE2
 |------|---------------|-------------|--------------|-------------------------|
 | 1 | SER_RSTPD| PMA Lane2 Serializer Reset and PD (Base address) | 0x4104 4078 | 0x3 - Assert Reset, 0x1 - DeAssert Reset |
 | 2 | DES_RSTPD| PMA Lane2 Deserializer RESET and PD | 0x4104 404C| 0x0032 - Assert Reset, 0x0010 - De-Assert reset |
-| 3 | TX PLL DIV1| PMA CMN TXPLL 1 Dividers | 0x41050010 | 0x0140000 |
-| 4 | TX PLL DIV2| PMA CMN TXPLL 2 Dividers | 0x41050014 | 0x1000000 |
-| 5 | SER_CLK_CNTRL| PMA Lane2 Serializer Clock Control | 0x4104 4074 |	0x73 - 1.25G, 0x71- 2.5G, 0x70 - 5G |
-| 6 | DES_RX_PLL_DIV| PMA Lane2 SSCG Register | 0x4104 4040 | 0x4414- 1.25G, 0x2214 - 2.5G, 0x228   - 5G |
-| 7 | LRST_R0| PCS LANE2 PSC LSRT Register (resets PCS Tx / Rx domain logic) | 0x4004 4068 | 0x0D0D - Assert Reset, 0x0404 - DeAssert Reset |
+| 3 | SER_CLK_CNTRL| PMA Lane2 Serializer Clock Control | 0x4104 4074 |	0x73 - 1.25G, 0x71- 2.5G, 0x70 - 5G |
+| 4 | DES_RX_PLL_DIV| PMA Lane2 SSCG Register | 0x4104 4040 | 0x4414- 1.25G, 0x2214 - 2.5G, 0x228   - 5G |
+| 5 | LRST_R0| PCS LANE2 PSC LSRT Register (resets PCS Tx / Rx domain logic) | 0x4004 4068 | 0x0D0D - Assert Reset, 0x0404 - DeAssert Reset |
 
 The base address of PMA Lane2 is 0x01044000, PCS LANE2 is 0x0004 4068,  and PMA CMN is 0x01050000.
 
 ## Instruction Sequence for Transceiver Rate Changes
+
 1. Assert Reset for the serializer.
 2. Assert Reset for the deserializer.
-3. Change TX_PLL_DIV_1 register.
-4. Change TX_PLL_DIV_2.
-5. Change SER_CLK_CNTRL.
-6. Change DES_RXPLL_DIV.
-7. De-Assert reset for the serializer.
-8. De-assert reset for the deserializer.
-9. Assert and de-assert the soft PCS reset.
+3. Configure the SER_CLK_CNTRL register for the required data rate, this will change the Serializer Bit Clock Rate.
+4. Configure the DES_RXPLL_DIV register for the required data rate, this will change the Reciever PLL divider values of CDR reference clock.
+5. De-assert Reset for the deserializer.
+6. Assert and de-assert the Soft PCS Reset.
 
 Using SoftConsole, follow the above mentioned sequence for writing to the registers listed in Table 2. The following table shows the expected TX_CLK and RX_CLK values.
 
