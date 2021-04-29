@@ -1,11 +1,3 @@
-## linux_applications:
+## baremetal_applications:
 
-This folder contains linux related files for Application Note AC489 linux prebuilt image, programming job file, Libero project etc..
-
-## baremetal_applications: 
-
-This folder contains System services Softconsole project.
-Test example
-# test heading
-## sub heading
-This is a test project. 
+This folder contains Softconsole projects for DRI, L2_LIM_EDAC, User_Crypto_Ownership, MicroPython and System_Services.
