@@ -142,11 +142,11 @@ To run the demo, perform the following steps:
 
 14. Press '1' to perform AES CCM encryption using the User Cryptoprocessor and follow Step 2 to Step 6. The result of the AES CCM encryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector.
 
-![](./images/step14_perform_aes_ccm_encryption.png) 
+![](./images/Encryption_step14.png)
 
 15. Press '2' to perform AES CCM decryption using the User Cryptoprocessor and follow Step 2 to Step 6. The result of the AES CCM decryption is printed on the Tera Term program, as shown in the following figure. Observe that the result is matched with the test vector.
 
-![](./images/com6_tera_term_application_menu_Decryption.png) 
+![](./images/Decryption_step15.png)
 
 16. Press '3' to release the User Cryptoprocessor access from Fabric to MSS as shown in the following figure. Fabric master will not be able to access User Cryptoprocessor until it requests again.
 
